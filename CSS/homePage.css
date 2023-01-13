@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+
+body{
+    font-family: 'MinecraftiaRegular';
+    color: rgb(189, 189, 189);
+    background-image: url("../Ressources/dirt_background.png")
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizontal-flew-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.column-flew-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#button-container{
+    width: 30vw;
+}
+
+.button{
+    display: flex;
+    width: 100%;
+    height: 3vw;
+    background-image: url("https://i.ibb.co/rb2TWXL/bgbtn.png");
+    justify-content: center;
+    align-items: center;
+    border: black 2px solid;
+    text-shadow: 2px 2px #000A;
+	box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    margin-top:1vw;
+}
+#bottom-container{
+    justify-content: space-between;
+
+}
+
+#social-container{
+
+}
