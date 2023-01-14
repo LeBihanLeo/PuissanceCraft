@@ -1,5 +1,5 @@
 # PuissanceCraft
-## Acceuil
+## Accueil
 Depuis l'accueil plusieurs actions sont disponibles:
 * Jouer en Local, ce mode de jeu ne necessite pas une connection 
 * Jouer en multi, nécessite une connection
