@@ -16,17 +16,23 @@ body{
 }
 
 #title{
-    font-size: 5vw;
+    width: 100%;
+    height: auto;
+}
+
+#title-container{
+    position: relative;
+    text-align: center;
 }
 
 #floating-text{
     color: #ffff00;
-    z-index: 2;
-    position: relative;
-    top: -46px;
-    left: 413px;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    font-size: 2vw;
     transform: rotate(334deg);
-    font-size: 1.5vw;
+    animation: 1s cubic-bezier(0, -0.01, 1, 1) infinite alternate none running grow;
 }
 
 .flex-center{
@@ -90,3 +96,11 @@ body{
     width: 80%;
     height: auto;
 }
+
+
+@keyframes grow {
+    0% {font-size: 1vw;}
+    50% {font-size: 1.2vw;}
+    100% {font-size: 1vw;}
+
+  }
