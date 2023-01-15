@@ -4,7 +4,8 @@
 body{
     font-family: 'MinecraftiaRegular';
     color: rgb(189, 189, 189);
-    background-image: url("../Ressources/dirt_background.png")
+    background-image: url("../Ressources/dirt_background.png");
+    font-size: 2vw;
 }
 
 #app{
