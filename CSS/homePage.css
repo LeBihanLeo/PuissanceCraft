@@ -7,10 +7,34 @@ body{
     background-image: url("../Ressources/dirt_background.png")
 }
 
+#app{
+    width: 98.5vw;
+    height: 97.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#title{
+    font-size: 5vw;
+}
+
+#floating-text{
+    color: #ffff00;
+    z-index: 2;
+    position: relative;
+    top: -46px;
+    left: 413px;
+    transform: rotate(334deg);
+    font-size: 1.5vw;
+}
+
 .flex-center{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .horizontal-flew-container{
@@ -32,7 +56,7 @@ body{
     width: 100%;
     height: 3vw;
     background: #999;
-    background-image: url("https://i.ibb.co/rb2TWXL/bgbtn.png") center / cover;
+    background-image: url("../Ressources/button_background.png");
     justify-content: center;
     align-items: center;
     border: black 2px solid;
@@ -44,16 +68,25 @@ body{
 }
 
 .button:hover{
-    background-color: rgba(100, 100, 255, .45);
     text-shadow: 2px 2px #202013CC;
-        color: #FFFFA0;
+    color: #FFFFA0;
+    background-image: url("../Ressources/button_background_hover.png");
+}
+
+.button:active{
+    box-shadow: inset -2px -4px #0004, inset 2px 2px #FFF5;
 }
 
 #bottom-container{
     justify-content: space-between;
-
+    align-items: flex-end;
+    width: 100%;
+}
+#social-container{
+    width: 7vw;
 }
 
-#social-container{
-
+.image{
+    width: 80%;
+    height: auto;
 }
