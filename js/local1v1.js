@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', init, false);
+var currentColor = "R"
+
 var playerRed = "R";
 var playerYellow = "Y";
 var currentPlayer = playerRed;
@@ -9,8 +12,11 @@ var currentColumns; // Indicate the nb of avalaible tile on a column
 var rows = 6;
 var columns = 7;
 
-window.onload = function() {
+function init(){
+    console.log("---page loaded---");
     setGame();
+    let board = document.getElementById("board");
+    board.addEventListener("click", color);
 }
 
 /**
@@ -46,4 +52,19 @@ function setGame() {
  */
 function setPiece() {
 
+}
+
+
+function color(){
+    let element =  event.target;
+    if(element.classList.contains("tile")){
+        if(currentColor == "R"){
+            element.style.background = "red";
+            currentColor = "Y"
+        }
+        else{
+            element.style.background = "yellow";
+            currentColor = "R"
+        }  
+    }
 }

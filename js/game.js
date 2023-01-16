@@ -22,16 +22,3 @@ function initGrid(){
 }
 
 
-function color(){
-    let element =  event.target;
-    if(element.classList.contains("case")){
-        if(currentColor == "R"){
-            element.style.background = "red";
-            currentColor = "Y"
-        }
-        else{
-            element.style.background = "yellow";
-            currentColor = "R"
-        }  
-    }
-}
