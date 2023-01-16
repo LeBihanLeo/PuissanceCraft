@@ -1,0 +1,68 @@
+#board {
+    background-image: url("../Ressources/game/plateau_foreground.png");
+    width: 45vw;
+    height: 41vw;
+    background-position: center;
+    background-size: cover;
+}
+
+#game-container {
+    background-image: url("../Ressources/game/plateau_background.png");
+    width: 45vw;
+    height: 41vw;
+    background-position: center;
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 95.5vh;
+    width: 98.5vw;
+}
+
+aside {
+    background-color: rgba(255, 255, 255, 0.54);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+menu {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 20vw;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 5vw;
+}
+
+#yellow-player {
+    border: .4vw solid yellow;
+}
+
+#red-player {
+    border: .4vw solid red;
+}
+
+#score-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#score {
+    padding: 1vw;
+}
+
+
+
