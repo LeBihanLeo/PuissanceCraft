@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="../css/app_style.css">
     <link rel="stylesheet" href="../css/game.css">
+
+    <script src="../js/local1v1.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,10 @@
         </aside>
 
         <div id="game-container">
-            <div class="grid" id="board"></div>
+            <div id="board-foreground"></div>
+            <div id="board-container">
+                <div id="board" class="board"></div>
+            </div>            
         </div>
 
         <menu id="game-menu">
