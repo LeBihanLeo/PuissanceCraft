@@ -63,3 +63,17 @@ menu {
 #score {
     padding: 1vw;
 }
+
+
+
+#board {
+    z-index: 5;
+}
+
+.tile {
+    z-index: 10;
+
+    color: blue;
+    width: 5vw;
+    height: 5vw;
+}
