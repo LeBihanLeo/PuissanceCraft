@@ -1,5 +1,5 @@
 #board {
-    background-image: url("../ressources/game/plateau_foreground.png");
+    background-image: url("../ressources/game/board_foreground.png");
     width: 45vw;
     height: 41vw;
     background-position: center;
@@ -7,7 +7,7 @@
 }
 
 #game-container {
-    background-image: url("../ressources/game/plateau_background.png");
+    background-image: url("../ressources/game/board_background.png");
     width: 45vw;
     height: 41vw;
     background-position: center;
