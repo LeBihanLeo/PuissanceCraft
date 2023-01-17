@@ -96,3 +96,11 @@ menu {
 
     background-color: blue;
 }
+
+.red-piece {
+    background-image: url("../resources/game/red_concrete_powder.png");
+}
+
+.yellow-piece {
+    background-image: url("../resources/game/yellow_concrete_powder.png");
+}
