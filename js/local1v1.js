@@ -23,13 +23,9 @@ function loadButtonSounds(){
     console.log("sound loading...")
     let buttons = document.getElementsByClassName("button");
     for(let i = 0 ; i < buttons.length ; i++)
-        buttons[i].addEventListener("click", p);
+        buttons[i].addEventListener("click", () => {buttonSound.play();});
 }
 
-function p(){
-    console.log("sound playing...")
-    buttonSound.play();
-}
 
 /**
  * Initialize the game board with empty tiles
