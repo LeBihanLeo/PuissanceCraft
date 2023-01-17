@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', init, false);
+var buttonSound = new Audio('../resources/sounds/button-sound.mp3');
 
 const playerRed = "R";
 const playerYellow = "Y";
@@ -14,7 +15,20 @@ const columns = 7;
 
 function init(){
     console.log("---page loaded---");
+    loadButtonSounds()
     setGame();
+}
+
+function loadButtonSounds(){
+    console.log("sound loading...")
+    let buttons = document.getElementsByClassName("button");
+    for(let i = 0 ; i < buttons.length ; i++)
+        buttons[i].addEventListener("click", p);
+}
+
+function p(){
+    console.log("sound playing...")
+    buttonSound.play();
 }
 
 /**
@@ -138,6 +152,7 @@ function animateFall(tile,c) {
         // timing options
         duration: 200 * currentColumns[c],
         iterations: 1
+        ///transitionTimingFunction : "cubic-bezier(1, 0.01, 1, 1.01)"
     })
 }
 
