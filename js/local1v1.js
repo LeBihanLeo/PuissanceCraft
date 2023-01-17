@@ -65,11 +65,11 @@ function setPiece() {
     board[r][c] = currentPlayer;
     let tile = document.getElementById(r.toString() + "-" + c.toString());
 
-    color(tile);
+    colorize(tile);
+    animateFall(tile,c);
+    checkWinner();
 
     currentColumns[c] = r-1;
-
-    checkWinner();
 }
 
 function checkWinner() {
@@ -119,26 +119,26 @@ function checkWinner() {
     }
 }
 
-const cubeFallingAnimation = [
-    { transform: 'rotate(0) scale(1)' },
-    { transform: 'rotate(360deg) scale(0)' }
-];
-
-const cubeFallingTiming = {
-    duration: 2000,
-    iterations: 1,
-}
-
-function color(tile){
+function colorize(tile){
     if (currentPlayer == playerRed) {
         tile.classList.add("red-piece");
-        tile.animate(cubeFallingAnimation, cubeFallingTiming);
         currentPlayer = playerYellow
     } else {
         tile.classList.add("yellow-piece");
-        tile.animate(cubeFallingAnimation, cubeFallingTiming);
         currentPlayer = playerRed;
     }
+}
+
+function animateFall(tile,c) {
+    tile.animate([
+        // keyframes
+        { transform: 'translateY(-' + currentColumns[c] * tile.offsetHeight + 'px)' },
+        { transform: 'translateY(0px)' }
+    ], {
+        // timing options
+        duration: 200 * currentColumns[c],
+        iterations: 1
+    })
 }
 
 function setWinner(r,c) {
