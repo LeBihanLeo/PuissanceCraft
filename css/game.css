@@ -1,5 +1,5 @@
 #board-foreground {
-    background-image: url("../ressources/game/board_foreground.png");
+    background-image: url("../resources/game/board_foreground.png");
     width: 45vw;
     height: 41vw;
     background-position: center;
@@ -11,7 +11,7 @@
 }
 
 #game-container {
-    background-image: url("../ressources/game/board_background.png");
+    background-image: url("../resources/game/board_background.png");
     width: 45vw;
     height: 41vw;
     background-position: center;
@@ -93,6 +93,12 @@ menu {
 .tile {
     aspect-ratio: 1;
     z-index: 0;
+}
 
-    background-color: blue;
+.red-piece {
+    background-image: url("../resources/game/red_concrete_powder.png");
+}
+
+.yellow-piece {
+    background-image: url("../resources/game/yellow_concrete_powder.png");
 }
