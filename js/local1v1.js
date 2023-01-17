@@ -3,7 +3,7 @@ var buttonSound = new Audio('../resources/sounds/button-sound.mp3');
 
 const playerRed = "R";
 const playerYellow = "Y";
-let currentPlayer = playerRed;
+let currentPlayer = playerYellow;
 let winner;
 
 let isGameOver = false;
@@ -13,10 +13,17 @@ let currentColumns; // Indicate the nb of avalaible tile on a column
 const rows = 6;
 const columns = 7;
 
+let playerName;
+let gameDuration = 0;
+const maxTimeToPlay = 60; //Time player has each turn to set his piece
+let timerToPlaySinceStart = maxTimeToPlay;
+
 function init(){
     console.log("---page loaded---");
     loadButtonSounds()
     setGame();
+    setInterval(clock, 1000);
+    changePlayer();
 }
 
 function loadButtonSounds(){
@@ -54,7 +61,27 @@ function setGame() {
     }
 }
 
+function clock() {
+    let minutes = parseInt(gameDuration / 60, 10);
+    let seconds = parseInt(gameDuration % 60, 10);
+    document.getElementById("duration")
+        .innerText = (minutes < 10 ? '0' + minutes : minutes) + " : " + (seconds < 10 ? '0' + seconds : seconds);
 
+    let timeLeftToPlay = timerToPlaySinceStart - gameDuration;
+    let timer = document.getElementById("timer")
+    timer.innerText = timeLeftToPlay + "s remaining!";
+
+    if (timeLeftToPlay == 0) {
+        changePlayer();
+        timerToPlaySinceStart++; //Just to adjust the current iteration of the clock
+    } else if (timeLeftToPlay <= 10) {
+        timer.style.color = "#AA0000";
+    } else {
+        timer.style.color = "white";
+    }
+
+    gameDuration++;
+}
 
 /**
  * Function called after clicking a tile
@@ -80,6 +107,22 @@ function setPiece() {
     checkWinner();
 
     currentColumns[c] = r-1;
+    changePlayer();
+}
+
+function changePlayer() {
+    playerName = document.getElementById("player-name");
+    if (currentPlayer == playerRed) {
+        currentPlayer = playerYellow;
+        playerName.innerText = "Alex";
+        playerName.style.color = "yellow";
+    } else {
+        currentPlayer = playerRed;
+        playerName.innerText = "Steve";
+        playerName.style.color = "red";
+    }
+    timerToPlaySinceStart = gameDuration + maxTimeToPlay;   //Because in clock function we substract gameDuration to this
+                                                            //to compute the time left for current player to play
 }
 
 function checkWinner() {
@@ -132,10 +175,8 @@ function checkWinner() {
 function colorize(tile){
     if (currentPlayer == playerRed) {
         tile.classList.add("red-piece");
-        currentPlayer = playerYellow
     } else {
         tile.classList.add("yellow-piece");
-        currentPlayer = playerRed;
     }
 }
 
