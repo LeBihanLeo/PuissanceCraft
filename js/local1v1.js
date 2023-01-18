@@ -15,14 +15,16 @@ const columns = 7;
 
 let playerName;
 let gameDuration = 0;
+let clockDurationInterval;
+let timeLeft;
+let clockTimerInterval;
 const maxTimeToPlay = 60; //Time player has each turn to set his piece
-let timerToPlaySinceStart = maxTimeToPlay;
 
 function init(){
     console.log("---page loaded---");
     loadButtonSounds()
     setGame();
-    setInterval(clock, 1000);
+    clockDurationInterval = setInterval(clockDuration, 1000);
     changePlayer();
 }
 
@@ -61,26 +63,33 @@ function setGame() {
     }
 }
 
-function clock() {
+function clockDuration() {
     let minutes = parseInt(gameDuration / 60, 10);
     let seconds = parseInt(gameDuration % 60, 10);
     document.getElementById("duration")
         .innerText = (minutes < 10 ? '0' + minutes : minutes) + " : " + (seconds < 10 ? '0' + seconds : seconds);
 
-    let timeLeftToPlay = timerToPlaySinceStart - gameDuration;
-    let timer = document.getElementById("timer")
-    timer.innerText = timeLeftToPlay + "s remaining!";
+    gameDuration++;
+}
 
-    if (timeLeftToPlay == 0) {
+function startTimer() {
+    timeLeft = maxTimeToPlay;
+    clockTimerInterval = setInterval(clockTimer, 1000);
+}
+
+function clockTimer() {
+    let timer = document.getElementById("timer")
+    timer.innerText = timeLeft + "s remaining!";
+
+    if (timeLeft == 0) {
         changePlayer();
-        timerToPlaySinceStart++; //Just to adjust the current iteration of the clock
-    } else if (timeLeftToPlay <= 10) {
+    } else if (timeLeft <= 10) {
         timer.style.color = "#AA0000";
     } else {
         timer.style.color = "white";
     }
 
-    gameDuration++;
+    timeLeft--;
 }
 
 /**
@@ -104,10 +113,11 @@ function setPiece() {
 
     colorize(tile);
     animateFall(tile,c);
-    checkWinner();
 
-    currentColumns[c] = r-1;
-    changePlayer();
+    if(!checkWinner()) {
+        currentColumns[c] = r-1;
+        changePlayer();
+    }
 }
 
 function changePlayer() {
@@ -121,8 +131,8 @@ function changePlayer() {
         playerName.innerText = "Steve";
         playerName.style.color = "red";
     }
-    timerToPlaySinceStart = gameDuration + maxTimeToPlay;   //Because in clock function we substract gameDuration to this
-                                                            //to compute the time left for current player to play
+    clearInterval(clockTimerInterval);
+    startTimer();
 }
 
 function checkWinner() {
@@ -132,7 +142,7 @@ function checkWinner() {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r][c+1] && board[r][c] == board[r][c+2] && board[r][c] == board[r][c+3]) {
                     setWinner(r,c);
-                    return;
+                    return true;
                 }
             }
         }
@@ -143,7 +153,7 @@ function checkWinner() {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r+1][c] && board[r][c] == board[r+2][c] && board[r][c] == board[r+3][c]) {
                     setWinner(r,c);
-                    return;
+                    return true;
                 }
             }
         }
@@ -154,7 +164,7 @@ function checkWinner() {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r+1][c+1] && board[r][c] == board[r+2][c+2] && board[r][c] == board[r+3][c+3]) {
                     setWinner(r,c);
-                    return;
+                    return true;
                 }
             }
         }
@@ -165,11 +175,13 @@ function checkWinner() {
             if (board[r][c] != ' ') {
                 if (board[r][c] == board[r-1][c+1] && board[r][c] == board[r-2][c+2] && board[r][c] == board[r-3][c+3]) {
                     setWinner(r,c);
-                    return;
+                    return true;
                 }
             }
         }
     }
+
+    return false;
 }
 
 function colorize(tile){
@@ -194,6 +206,8 @@ function animateFall(tile,c) {
 }
 
 function setWinner(r,c) {
+    clearInterval(clockTimerInterval);
+    clearInterval(clockDurationInterval);
     winner = board[r][c];
     isGameOver = true;
 }
