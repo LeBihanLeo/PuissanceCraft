@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+#title{
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    #title{
+        width: 90%;
+    }
+}
+
+#title-container{
+    position: relative;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    #title-container {
+        font-size: 2vh;
+    }
+}
+
+#floating-text{
+    color: #ffff00;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    font-size: 2vw;
+    transform: rotate(334deg);
+    animation: 1s cubic-bezier(0, -0.01, 1, 1) infinite alternate none running grow;
+}
+
+@media screen and (max-width: 768px) {
+    #floating-text{
+        animation: 1s cubic-bezier(0, -0.01, 1, 1) infinite alternate none running grow-tablet;
+    }
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.column-flew-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#button-container{
+    width: 30vw;
+}
+
+@media screen and (max-width: 768px) {
+    #button-container{
+        width: 80%;
+    }
+}
+
+
+#bottom-container{
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+
+@keyframes grow {
+    0% {font-size: 1vw;}
+    50% {font-size: 1.2vw;}
+    100% {font-size: 1vw;}
+}
+
+@keyframes grow-tablet {
+    0% {font-size: 3vw;}
+    50% {font-size: 3.6vw;}
+    100% {font-size: 3vw;}
+}

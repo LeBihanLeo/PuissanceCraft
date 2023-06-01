@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'MinecraftiaRegular';
+        src: url('./Minecraftia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+ /* The following rules are deprecated. */ 
+
+@font-face {
+    font-family: 'Minecraftia';
+        src: url('./Minecraftia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+
+body{
+    font-family: 'MinecraftiaRegular', serif;
+    color: rgb(189, 189, 189);
+    background-image: url("../resources/dirt_background.png");
+    font-size: 1vw;
+    background-color: black;
+    height: 97.5vh;
+    margin:0;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 2vh !important;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (max-height: 300px) {
+    body {
+        font-size: 2vh !important;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+#app{
+    width: 98.5vw;
+    height: 97.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    #app {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+/* Mineacraft-like button */
+
+.button{
+    display: flex;
+    width: 100%;
+    height: 3vw;
+    background: #999;
+    background-image: url("../resources/button/button_background.png");
+    justify-content: center;
+    align-items: center;
+    border: black 2px solid;
+    text-shadow: 2px 2px #000A;
+    box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    margin-top:1vw;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        height: 6.5vh;
+    }
+}
+
+.button:hover {
+    text-shadow: 2px 2px #202013CC;
+    color: #FFFFA0;
+    background-image: url("../resources/button/button_background_hover.png");
+}
+
+.button:active{
+    box-shadow: inset -2px -4px #0004, inset 2px 2px #FFF5;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+/* Social Footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .5vw;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .5vw;
+    z-index: 1000;
+}
+
+.space-between {
+    margin: .5vw;
+    margin-inline: .5vw;
+    width: 3vw;
+    height: 3vw;
+}
+
+@media screen and (max-width: 768px) {
+    .wide-square {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.horizontal-flew-container {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+    .horizontal-flew-container {
+        flex-wrap: wrap;
+    }
+}
+
+.image {
+    width: 80%;
+    height: auto;
+}
+
+input[type="text"].minecraft,input[type="email"].minecraft,input[type="password"].minecraft{
+    width: 98%;
+    height: 3vw;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: whitesmoke;
+    margin-bottom: 1vw;
+    border: 1px solid whitesmoke;
+    font-size: 1vw;
+    font-family: 'MinecraftiaRegular', serif;
+    padding: 1%;
+}
+
+@media screen and (max-width: 768px) {
+    input[type="text"].minecraft,input[type="email"].minecraft,input[type="password"].minecraft{
+        height: 4vh;
+        margin-bottom: 2vh;
+        font-size: 2vh;
+    }
+}
+
+.margin-top{
+    margin-top: 3vh;
+}
+
+.hidden{
+    display: none!important;
+}
+
+@media screen and (max-width: 768px) { /* ou toute autre largeur de tablette souhaitée */
+    .hidden-mobile{
+        display: none!important;
+    }
+}
+
+
+form {
+    all: unset;
+}
+
+.disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.avatar {
+    border-radius: 50%;
+    width: 5vw;
+}
+.title{
+    font-size: 4vw;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .title{
+        font-size: 4vh;
+    }
+}
+
+.reconnecting-info {
+    background-color: black;
+    color: red;
+    width: 100%;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+}

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>PuissanceCraft</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/social-menu.css">
+    <link rel="stylesheet" href="../css/clash-menu.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+
+    <script src=../js/buttonSounds.js></script>
+    <script src=../js/user/profile.js></script>
+    <script src="../js/user/tokenManager.js"></script>
+    <script src="../js/user/social.js"></script>
+    <script src="../js/user/clash.js"></script>
+    <script src="../js/socket.io.min.js"></script>
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+<header>
+    <div class="horizontal-flew-container">
+        <a class="button space-between wide-square" href="../index.html">
+            <img class="image" src="../resources/icon/home.png">
+        </a>
+    </div>
+</header>
+
+<div id="app-profil" class="flex-vertical-center">
+    <div id="profil" class="title">Profile</div>
+    <div class="flex-vertical-center">
+        <div id="user-data">
+            <div class="flex-vertical-center text-flex-start">
+                <h2 class="subtitle">User Informations</h2>
+                <div id="form-username" class="form-data">-</div>
+                <div id="form-email" class="form-data">-</div>
+                <div id="x-location" class="form-data hidden">-</div>
+                <div id="y-location" class="form-data hidden">-</div>
+                <div id="z-location" class="form-data hidden">-</div>
+                <div id="multiplayer-container">
+                    <div id="country" class="form-data hidden">-</div>
+                    <i id="flag" class='em' aria-role='presentation'></i>
+                </div>
+                
+                
+            </div>
+            <div class="flex-vertical-center text-flex-start">
+                <h2 class="subtitle">Statistics</h2>
+                <div>Elo: <span id="elo" class="elo">- </span> (<span id="win-style"><span id="win">10</span>W</span> <span id="lose-style"><span id="lose">7</span>D</span>)</div>
+                <div>Winrate: <span id="winrate" class="">100</span></div>
+                <a class="button" href="leaderboard.html">Leaderboard</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-vertical-center">
+        <div id="rank-list">
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name" id="r0">Coal<br> <br></div>
+                    <img src="../resources/rank/0.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name" id="r500">Iron<br>500+</div>
+                    <img src="../resources/rank/500.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name"id="r1000">Gold<br>1000+</div>
+                    <img src="../resources/rank/1000.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name" id="r1500">Diamond<br>1500+</div>
+                    <img src="../resources/rank/1500.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name" id="r2000">Emeraude<br>2000+</div>
+                    <img src="../resources/rank/2000.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank">
+                    <div class="rank-name" id="r2500">Netherite<br>2500+</div>
+                    <img src="../resources/rank/2500.webp" class="small-image"></img>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="container rank margin-bottom">
+                    <div class="rank-name" id="r3000">Nether Star<br>3000+</div>
+                    <img src="../resources/rank/3000.webp" class="small-image"></img>
+                </div>
+            </div>
+        </div>
+        <div class="white-separator"></div>
+    </div>
+
+    <div id="iconMenus"  class="icons">
+        <div class="button space-between wide-square" onclick="displayNotificationMenu()">
+            <img class="image" id="bell" src="../resources/icon/bell.png">
+        </div>
+        <button class="button space-between wide-square" onclick="displaySocialMenu()">
+            <img class="image" src="../resources/icon/social.png">
+        </button>
+    </div>
+
+    <div id="notifications" class="social-container hidden">
+        <div class="social-header">
+            <span id="" class="notification-title">Notifications</span>
+            <button onclick="quitNotificationsMenu()" class="button space-between quit-button">X</button>
+        </div>
+        <div id="notificationList">
+        </div>
+    </div>
+
+    <div id="social" class="social-container hidden">
+        <div class="social-header">
+            <span id="username" class="username"></span>
+            <div class="search-container">
+                <input class="message-input" type="text" placeholder="Add friend..." id="friend-input" autocomplete="off"/>
+            </div>
+            <button onclick="quitSocialMenu()" class="button space-between quit-button">X</button>
+        </div>
+
+        <div class="social-body">
+            <aside class="social-aside" id="friends"></aside>
+            <main id="messages" class="social-messages"></main>
+        </div>
+
+        <div class="social-footer">
+            <input class="message-input" type="text" placeholder="Type your message here..." id="message-input" autocomplete="off"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Utilisez une image de base Node.js
+FROM node
+
+# Je suis le gardien de l'image node
+LABEL maintainer="Kilian Bonnet <kilian.bonnet1@etu.univ-cotedazur.fr>"
+
+# Définissez le répertoire de travail
+WORKDIR /app
+
+# Copiez les fichiers de votre application dans le répertoire de travail
+COPY cordova ./cordova
+COPY back ./back
+COPY package*.json ./
+
+# Installez les dépendances de l'application
+RUN npm install
+
+# Exposez le port que votre application utilisera pour écouter les connexions
+EXPOSE 8000
+
+# Définissez le script de démarrage de l'application
+CMD ["npm", "start"]

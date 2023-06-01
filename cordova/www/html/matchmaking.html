@@ -1,0 +1,83 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PuissanceCraft</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../css/matchmaking.css">
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+    <link rel="stylesheet" href="../css/social-menu.css">
+    <link rel="stylesheet" href="../css/clash-menu.css">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+    <span id="reconnecting" class="reconnecting-info hidden">No network! Reconnecting...</span>
+    <div id="app" class="minecraft-font">
+        <main class="main-container" id="waiting">
+            <div class="centeredBox">
+                <div id="userWaiting">
+                    <img class="avatar" src="../resources/icon/steve.jpg">
+                </div>
+                <div id="statusWaiting">Waiting for opponent...</div>
+                <a class="button" href="../index.html">Return to menu</a>
+            </div>
+        </main>
+
+        <main class="main-container hidden" id="loading">
+            <div id="userLoading">
+                <img class="avatar" src="../resources/icon/steve.jpg">
+            </div>
+            <div id="statusLoading">Opponent found!</div>
+            <img src="../resources/loading.webp" alt="loading gif"/>
+        </main>
+    </div>
+
+    <div id="iconMenus"  class="icons">
+        <div id="notification-button" class="button space-between wide-square" onclick="displayNotificationMenu()">
+            <img class="image" id="bell" src="../resources/icon/bell.png">
+        </div>
+        <button id="social-button" class="button space-between wide-square" onclick="displaySocialMenu()">
+            <img class="image" src="../resources/icon/social.png">
+        </button>
+    </div>
+
+    <div id="notifications" class="social-container hidden">
+        <div class="social-header">
+            <span id="" class="notification-title">Notifications</span>
+            <button onclick="quitNotificationsMenu()" class="button space-between quit-button">X</button>
+        </div>
+        <div id="notificationList">
+        </div>
+    </div>
+
+    <div id="social" class="social-container hidden">
+        <div class="social-header">
+            <span id="username" class="username"></span>
+            <div class="search-container">
+                <input class="message-input" type="text" placeholder="Add friend..." id="friend-input" autocomplete="off"/>
+            </div>
+            <button onclick="quitSocialMenu()" class="button space-between quit-button">X</button>
+        </div>
+
+        <div class="social-body">
+            <aside class="social-aside" id="friends"></aside>
+            <main id="messages" class="social-messages"></main>
+        </div>
+
+        <div class="social-footer">
+            <input class="message-input" type="text" placeholder="Type your message here..." id="message-input" autocomplete="off"/>
+        </div>
+    </div>
+</body>
+<script src="../cordova.js"></script>
+<script src=../js/buttonSounds.js></script>
+<script src="../js/user/tokenManager.js"></script>
+<script src="../js/user/social.js"></script>
+<script src="../js/user/clash.js"></script>
+<script src="../js/game/matchmaking.js"></script>
+<script src="../js/socket.io.min.js"></script>
+</html>

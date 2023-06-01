@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: puissance-craft-mongo
+    container_name: puissance-craft-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: puissancecraft
+      MONGO_INITDB_ROOT_PASSWORD: bihbonbuq
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+
+  app:
+    image: puissance-craft-node
+    container_name: puissance-craft-node
+    build: .
+    ports:
+      - "80:8000"
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  mongodb:

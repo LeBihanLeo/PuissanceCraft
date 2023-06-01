@@ -1,0 +1,14 @@
+# Image parent
+FROM mongo:latest
+
+LABEL maintainer="Antoine BUQUET<antoine.buquet@etu.unice.fr>"
+
+# Variables d'environnement
+ENV MONGO_INITDB_ROOT_USERNAME=puissancecraft
+ENV MONGO_INITDB_ROOT_PASSWORD=bihbonbuq
+
+# Port
+EXPOSE 27017
+
+# Commandes à exécuter lors de l'exécution de l'image
+CMD ["mongod"]

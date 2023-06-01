@@ -1,0 +1,187 @@
+#app-profil{
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    #app-profil{
+        overflow: inherit;
+    }
+}
+
+#rank-list{
+    display: flex;
+    flex-direction: row;
+    height: 21vw;
+    width: 80vw;
+}
+
+@media screen and (max-width: 768px) {
+    #rank-list{
+        flex-direction: column;
+        height: 45vh;
+        width: 100%;
+        order: 1;
+    }
+}
+
+.flex-vertical-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rank{
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .rank{
+        width: 100%;
+    }
+}
+
+.rank-name{
+    margin-top: 0;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 0;
+}
+
+.small-image{
+    width: 50%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .small-image{
+        width: 30%;
+    }
+}
+
+.container{
+    height: fit-content;
+    border: 2px solid black;
+    background-color: #a4a4a4b8;
+    margin-inline: 2vw;
+}
+
+.current-rank{
+    background-color: #ffff008a;
+}
+
+#user-header{
+    font-size: 1.5vw;
+}
+
+.elo{
+    color:yellow;
+}
+
+.white-separator{
+    height: 0.2vh;
+    width: 100%;
+    background-color: #ffffffd1;
+    margin-top: 2vh;
+}
+
+@media screen and (max-width: 768px) {
+    .white-separator{
+        order: 0;
+        width: 120%;
+    }
+}
+
+.white-separator-vertical{
+    width: 0.1vh;
+    height: 100%;
+    background-color: #ffffffd1;
+    margin-inline: 1vw;
+}
+
+#user-data{
+    display: flex;
+    flex-direction: row;
+    width: 56vw;
+    justify-content: space-between;
+    margin-bottom: 3vw;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    #user-data{
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+        align-items: stretch;
+    }
+}
+
+#win-style{
+    color: #02c402;
+}
+
+#lose-style{
+    color:red;
+}
+
+.text-flex-start{
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+    .text-flex-start{
+        align-items: center;
+    }
+}
+
+#r500 {
+    margin-bottom: 2vw;
+}
+
+#r1000 {
+    margin-bottom: 4vw;
+}
+
+#r1500 {
+    margin-bottom: 6vw;
+}
+
+#r2000 {
+    margin-bottom: 8vw;
+}
+
+#r2500 {
+    margin-bottom: 10vw;
+}
+
+#r3000 {
+    margin-bottom: 12vw;
+}
+
+@media screen and (max-width: 768px) {
+    #r0, #r500, #r1000, #r1500, #r2000, #r2500, #r3000 {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .margin-bottom {
+        margin-bottom: 5vw;
+    }
+}
+
+#multiplayer-container {
+    display: flex;
+    align-items: center;
+}
+
+#country {
+    padding-right: 5px;
+}

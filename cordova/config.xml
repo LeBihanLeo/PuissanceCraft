@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.my.awesomeapp" version="1.0.0"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>Puissance Craft</name>
+    <description>Puissance Craft App</description>
+    <author email="antoine.buquet@etu.univ-cotedazur.fr" href="https://cordova.apache.org">
+        Antoine Buquet
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="KeepRunning" value="true"/>
+    <preference name="Scheme" value="http" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+
+    <icon src="www/resources/icon/app-little.jpg" platform="android" width="57" height="57" density="mdpi" />
+
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+
+    <platform name="android">
+        <splash src="www/resources/splash/xxhdpi.png" density="port-hdpi" />
+        <splash src="www/resources/splash/xxhdpi.png" density="port-ldpi" />
+        <splash src="www/resources/splash/xxhdpi.png" density="port-mdpi" />
+        <splash src="www/resources/splash/xxhdpi.png" density="port-xhdpi" />
+        <splash src="www/resources/splash/xxhdpi.png" density="port-xxhdpi" />
+        <splash src="www/resources/splash/xxhdpi.png" density="port-xxxhdpi" />
+
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-hdpi" />
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-ldpi" />
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-mdpi" />
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-xhdpi" />
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-xxhdpi" />
+        <splash src="www/resources/splash/land-xxhdpi.png" density="land-xxxhdpi" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+        </config-file>
+    </platform>
+</widget>

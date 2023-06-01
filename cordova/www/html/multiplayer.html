@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PuissanceCraft</title>
+
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/multiplayer.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+
+<header style="width: 99vw">
+    <div id="cross-exit" class="horizontal-flew-container">
+        <a id="quit" href="../index.html" onclick="resetScore()" class="button">X</a>
+    </div>
+
+</header>
+
+<main>
+
+    <aside id="leftSide">
+        <aside id="game-status">
+            <div class="playing">
+                <div class="playerArea">
+                    <img id="playerRedRank" class="little-rank-img">
+                    <span id="player-red-name">Steve</span>
+                    <span id="player-red-elo" class="elo"></span>
+                </div>
+                <div>
+                    VS
+                </div>
+                <div class="playerArea">
+                    <img id="playerYellowRank" class="little-rank-img">
+                    <span id="player-yellow-name">AI</span>
+                    <span id="player-yellow-elo" class="elo"></span>
+                </div>
+            </div>
+            <span id="duration">00 : 00</span>
+            <div id="score-container">
+                <div class="flag-container">
+                    <i id="player-red-flag" class="em" aria-role="presentation"></i>
+                </div>
+                <img src="../resources/icon/steve.jpg" class="avatar" id="player-red-avatar">
+                <span id="score">0 - 0</span>
+                <img src="../resources/icon/alex.jpg" class="avatar" id="player-yellow-avatar">
+                <div class="flag-container">
+                    <i id="player-yellow-flag" class='em' aria-role='presentation'></i>
+                </div>
+            </div>
+            <div id="mobile-chat-bubble" class="hidden-computer">
+                <div class="chat-mobile">
+                    <div id="player-red-avatar-chat-bubble" class="chat-bubble">
+                        <div id="bubble-red" class="bubble mini top">awesome!
+                            <img src="../resources/game/msg_up.png" class="msg-up" id="red-msg_up">
+                        </div>
+                    </div>
+                    <div class="blank"></div>
+                    <div id="player-yellow-avatar-chat-bubble" class="chat-bubble">
+                        <div id="bubble-yellow" class="bubble mini top left">
+                            awesome!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div id="chat" class="hidden-mobile">
+            <div id="output"></div>
+            <div id="input">
+                <div class="grid-container">
+                    <div class="grid-item button">Good job!</div>
+                    <div class="grid-item button">Nice try!</div>
+                    <div class="grid-item button">Oops</div>
+                    <div class="grid-item button">Rematch</div>
+                    <div class="grid-item button">Thank you</div>
+                    <div class="grid-item button">Good luck</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div id="game-container">
+        <div id="board-foreground"></div>
+        <div id="board-container">
+            <div id="board" class="board"></div>
+        </div>
+    </div>
+
+    <menu id="game-menu">
+        <article  class="hidden">
+            <div id="winnerArea">
+                <span id="winner-name"></span>
+                <span>won the game!</span>
+            </div>
+            <div id="elo">
+                <p id="eloDiffText"></p>
+                <div id="elo-progress">
+                    <span id="previousRankElo"></span>
+                    <img id="previousRankImg" class="little-rank-img">
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                    <img id="nextRankImg" class="little-rank-img">
+                    <span id="nextRankElo"></span>
+                </div>
+                <div id="netherstar" class="hidden">
+                    <img class="rank-img" src="../resources/rank/3000.webp">
+                    <span id="netherstarElo"></span>
+                </div>
+            </div>
+            <a class="button" id="rematchButton">Rematch</a>
+            <p id="rematchStatus" class="hidden"></p>
+        </article>
+        <a id="quit-button" href="../index.html" onclick="resetScore()" class="button hidden-mobile">Quit game</a>
+    </menu>
+
+    <div id="mobile-chat">
+        <div id="mobile-chat-message-box" class="visibility-hidden">
+            <div class="grid-item button">Good job!</div>
+            <div class="grid-item button">Nice try!</div>
+            <div class="grid-item button">Oops</div>
+            <div class="grid-item button">Rematch</div>
+            <div class="grid-item button">Thank you</div>
+            <div class="grid-item button">Good luck</div>
+        </div>
+        <div id="chat-mobile-icon" class="button space-between">
+            <img src="../resources/icon/message.png" class="image">
+        </div>
+    </div>
+</main>
+
+<div id="notifications" class="social-container hidden">
+    <div class="social-header">
+        <span id="" class="notification-title">Notifications</span>
+        <button onclick="quitNotificationsMenu()" class="button space-between">X</button>
+    </div>
+    <div id="notificationList">
+    </div>
+</div>
+</body>
+<script src="../js/game/multiplayer.js"></script>
+<script src="../js/user/tokenManager.js"></script>
+<script src="../js/buttonSounds.js"></script>
+<script src="../js/game/chatInGame.js"></script>
+<script src="../js/socket.io.min.js"></script>
+</html>

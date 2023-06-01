@@ -1,0 +1,121 @@
+menu {
+    padding: inherit;
+    margin: inherit;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    menu {
+        flex-direction: column;
+    }
+}
+
+.menuimg {
+    width: 15vw;
+    height: auto;
+    transition: all .2s ease-in-out;
+    margin-right: 2vw;
+}
+
+@media screen and (max-width: 768px) {
+    .menuimg {
+        width: 35vw;
+    }
+}
+
+.thin {
+    display: flex;
+    width: auto;
+    padding-right: 2vw;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    .thin {
+        height: 15vw;
+        font-size: 5vw;
+        width: 95%;
+    }
+}
+
+.menuimg:hover {
+    transform: scale(1.2);
+}
+
+.button:hover .menuimg {
+    transform: scale(1.2);
+}
+
+.big {
+    width: 25vw;
+}
+
+@media screen and (max-width: 768px) {
+    .big {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wide {
+        height: 35vw;
+    }
+}
+
+.inQueue {
+    display: flex;
+    color:yellow;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+    .inQueue {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex-direction: column;
+    }
+}
+
+#battery-warning{
+    width: 100%;
+    height: 0vh;
+    display: flex;
+    background-color: #ff0000;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1001;
+    font-size: 4vw;
+}
+#battery-message{
+}
+
+.battery-alert{
+    animation: warning-animation 3s linear;
+}
+
+@keyframes warning-animation {
+    0% {
+        height: 0vh;
+    }
+    10% {
+        height: 7vh;
+    }
+    90% {
+        height: 7vh;
+        color: white;
+    }
+    100% {
+        height: 0vh;
+        color: transparent;
+    }
+}

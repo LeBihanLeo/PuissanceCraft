@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PuissanceCraft</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/app_style.css">
+    <link rel="stylesheet" href="./css/social-menu.css">
+    <link rel="stylesheet" href="./css/clash-menu.css">
+    <link rel="icon" type="image/x-icon" href="resources/icon/app-little.jpg">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+<body>
+    <span id="reconnecting" class="reconnecting-info hidden">No network! Reconnecting...</span>
+    <header style="margin-bottom: 10vh">
+
+    </header>
+    <div id="app" class="minecraft-font">
+        <div id="top-container" class="column-flew-container flex-center">
+            <div id="title-container">
+                <img id="title" src="./resources/app_logo.png"></img>
+                <div id="floating-text">hello world</div>
+            </div>
+        </div>
+        <div id="mid-container" class="flex-center">
+            <div id="button-container" class="">
+                <a class="button" href="./html/singleplayer_mode.html">Local game</a>
+                <a class="button" id="multiplayer-button" href="./html/multiplayer_mode.html">Multiplayer</a>
+                <div class="horizontal-flew-container">
+                    <a class="button" id="profile-button" href="./html/profile.html">Profile</a>
+                    <a class="button" id="login"  href="./html/login.html">Login</a>
+                    <a class="button hidden" id="logout">Logout</a>
+
+                </div>
+            </div>
+        </div>
+        <div id="bottom-container" class="horizontal-flew-container flex-center">
+            <div id="version">PuissanceCraft 0.0.1</div>
+            <div class="horizontal-flew-container">
+                <div class="horizontal-flew-container">
+                    <div id="sound-button" class="button space-between wide-square" onclick="onMute()">
+                        <img class="image" id="mute">
+                    </div>
+                    <div id="iconMenus" class="horizontal-flew-container">
+                        <div id="notification-button" class="button space-between wide-square" onclick="displayNotificationMenu()">
+                            <img class="image" id="bell" src="./resources/icon/bell.png">
+                        </div>
+                        <button id="social-button" class="button space-between wide-square" onclick="displaySocialMenu()">
+                            <img class="image" src="./resources/icon/social.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifications" class="social-container hidden">
+        <div class="social-header">
+            <span id="" class="notification-title">Notifications</span>
+            <button onclick="quitNotificationsMenu()" class="button space-between quit-button">X</button>
+        </div>
+        <div id="notificationList">
+        </div>
+    </div>
+
+    <div id="social" class="social-container hidden">
+        <div class="social-header">
+            <span id="username" class="username"></span>
+            <div class="search-container">
+                <input class="message-input" type="text" placeholder="Add friend..." id="friend-input" autocomplete="off"/>
+            </div>
+            <button onclick="quitSocialMenu()" class="button space-between quit-button">X</button>
+        </div>
+
+        <div class="social-body">
+            <aside class="social-aside" id="friends"></aside>
+            <main id="messages" class="social-messages"></main>
+        </div>
+
+        <div class="social-footer">
+            <input class="message-input" type="text" placeholder="Type your message here..." id="message-input" autocomplete="off"/>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="./js/socket.io.min.js"></script>
+    <script src="./js/user/tokenManager.js"></script>
+    <script>
+        let token = getTokenFromCookie();
+        if(token){
+            let userData = decodeJWT(token);
+            let splash = document.getElementById("floating-text");
+            splash.innerText = "hello " + userData.username;
+        }
+    </script>
+
+    <script src="./js/user/social.js"></script>
+    <script src="./js/buttonSounds.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/user/logout.js"></script>
+    <script src="./js/user/clash.js"></script>
+</body>
+</html>

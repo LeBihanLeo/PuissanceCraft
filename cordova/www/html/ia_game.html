@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PuissanceCraft</title>
+
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+
+<header>
+    <div class="horizontal-flew-container">
+        <a class="button space-between wide-square" href="../index.html">
+            <img class="image" src="../resources/icon/home.png">
+        </a>
+    </div>
+</header>
+
+<nav class="column-flew-container flex-center">
+    <div class="box">
+        <p>Who plays first?</p>
+        <a class="button" id="playerButton">Player</a>
+        <a class="button" id="aiButton">AI</a>
+        <div id="save-container">
+            <p>Load a game</p>
+            <a class="button" id="loadSave">Resume</a>
+        </div>
+
+    </div>
+</nav>
+
+    <main class="hidden">
+        <aside id="game-status">
+            <div id="playing">
+                <span id="player-name">You</span>
+                <span> VS </span>
+                <span id="ia-name">AI</span>
+            </div>
+            <span id="duration">00 : 00</span>
+            <div id="score-container">
+                <img src="../resources/icon/steve.jpg" class="avatar" id="player-avatar">
+                <span id="score">0 - 0</span>
+                <img src="../resources/icon/alex.jpg" class="avatar" id="ia-avatar">
+            </div>
+        </aside>
+
+        <div id="game-container">
+            <div id="board-foreground"></div>
+            <div id="board-container">
+                <div id="board" class="board-ia"></div>
+            </div>            
+        </div>
+
+        <menu id="game-menu">
+            <article class="hidden">
+                <div>
+                    <span id="winner-name"></span>
+                    <span>won the game!</span>
+                </div>
+                <a class="button" id="rematchButton">Rematch</a>
+            </article>
+            <a class="button" id="saveButton">Save game</a>
+            <a href="../index.html" id="quitButton" onclick="resetScore()" class="button">Quit game</a>
+        </menu>
+    </main>
+
+
+</body>
+<script src="../js/socket.io.min.js"></script>
+<script src="../js/game/ia_game.js"></script>
+<script src="../js/user/tokenManager.js"></script>
+<script src="../js/buttonSounds.js"></script>
+<script src="../js/game/ManageSavedGame.js"></script>
+</html>

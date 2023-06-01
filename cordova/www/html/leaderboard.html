@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>PuissanceCraft</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="stylesheet" href="../css/leaderboard.css">
+    <link rel="stylesheet" href="../css/social-menu.css">
+    <link rel="stylesheet" href="../css/clash-menu.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+
+    <script src=../js/buttonSounds.js></script>
+    <script src=../js/user/leaderboard.js></script>
+    <script src="../js/user/tokenManager.js"></script>
+    <script src="../js/user/social.js"></script>
+    <script src="../js/user/clash.js"></script>
+    <script src="../js/socket.io.min.js"></script>
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+<header>
+    <div class="horizontal-flew-container">
+        <a class="button space-between wide-square" href="../index.html">
+            <img class="image" src="../resources/icon/home.png">
+        </a>
+    </div>
+</header>
+    <div id="app-leaderboard" class="flex-vertical-center">
+        <div class="title">Leaderboard</div>
+
+        <div class="container-leaderboard">
+            <div class="container-player">
+                <div class="rank-child">
+                </div>
+                <div class="small-child">
+                    <p class="tab-header">Elo</p>
+                </div>
+                <div class="big-child">
+                    <p>Username</p>
+                </div>
+                <div class="small-child">
+                    <p>Wins</p>
+                </div>
+                <div class="small-child">
+                    <p>Loses</p>
+                </div>
+            </div>
+            <div class="white-separator"></div>
+        </div>
+
+        <div id="container" class="container-leaderboard">
+
+        </div>
+
+        <div id="iconMenus"  class="icons">
+            <div class="button space-between wide-square" onclick="displayNotificationMenu()">
+                <img class="image" id="bell" src="../resources/icon/bell.png">
+            </div>
+            <button class="button space-between wide-square" onclick="displaySocialMenu()">
+                <img class="image" src="../resources/icon/social.png">
+            </button>
+        </div>
+
+        <div id="notifications" class="social-container hidden">
+            <div class="social-header">
+                <span id="" class="notification-title">Notifications</span>
+                <button onclick="quitNotificationsMenu()" class="button space-between quit-button">X</button>
+            </div>
+            <div id="notificationList">
+            </div>
+        </div>
+
+        <div id="social" class="social-container hidden">
+            <div class="social-header">
+                <span id="username" class="username"></span>
+                <div class="search-container">
+                    <input class="message-input" type="text" placeholder="Add friend..." id="friend-input" autocomplete="off"/>
+                </div>
+                <button onclick="quitSocialMenu()" class="button space-between quit-button">X</button>
+            </div>
+
+            <div class="social-body">
+                <aside class="social-aside" id="friends"></aside>
+                <main id="messages" class="social-messages"></main>
+            </div>
+
+            <div class="social-footer">
+                <input class="message-input" type="text" placeholder="Type your message here..." id="message-input" autocomplete="off"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

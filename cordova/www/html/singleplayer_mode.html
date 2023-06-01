@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PuissanceCraft</title>
+
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="stylesheet" href="../css/multiple_mode.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+
+
+    <link rel="stylesheet" href="../css/social-menu.css">
+    <link rel="stylesheet" href="../css/clash-menu.css">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+    <span id="reconnecting" class="reconnecting-info hidden">No network! Reconnecting...</span>
+    <header>
+        <div class="horizontal-flew-container">
+            <a class="button space-between wide-square" href="../index.html">
+                <img class="image" src="../resources/icon/home.png">
+            </a>
+        </div>
+    </header>
+
+    <menu>
+            <a class="button thin" href="game.html"><img class="menuimg" src="../resources/icon/local.png">Versus a friend</a>
+            <a id="ia-game-button" class="button thin" href="ia_game.html"><img class="menuimg" src="../resources/icon/ai.png">Versus AI</a>
+    </menu>
+
+
+    <div id="iconMenus"  class="icons">
+        <div id="notification-button" class="button space-between wide-square" onclick="displayNotificationMenu()">
+            <img class="image" id="bell" src="../resources/icon/bell.png">
+        </div>
+        <button id="social-button" class="button space-between wide-square" onclick="displaySocialMenu()">
+            <img class="image" src="../resources/icon/social.png">
+        </button>
+    </div>
+
+    <div id="notifications" class="social-container hidden">
+        <div class="social-header">
+            <span id="" class="notification-title">Notifications</span>
+            <button onclick="quitNotificationsMenu()" class="button space-between quit-button">X</button>
+        </div>
+        <div id="notificationList">
+        </div>
+    </div>
+
+    <div id="social" class="social-container hidden">
+        <div class="social-header">
+            <span id="username" class="username"></span>
+            <div class="search-container">
+                <input class="message-input" type="text" placeholder="Add friend..." id="friend-input" autocomplete="off"/>
+            </div>
+            <button onclick="quitSocialMenu()" class="button space-between quit-button">X</button>
+        </div>
+
+        <div class="social-body">
+            <aside class="social-aside" id="friends"></aside>
+            <main id="messages" class="social-messages"></main>
+        </div>
+
+        <div class="social-footer">
+            <input class="message-input" type="text" placeholder="Type your message here..." id="message-input" autocomplete="off"/>
+        </div>
+    </div>
+
+</body>
+<script src="../cordova.js"></script>
+
+<script>
+    document.addEventListener("offline", onOffline, false);
+    document.addEventListener("online", onOnline, false);
+
+    function onOffline() {
+        console.log("On Offline");
+        document.getElementById("reconnecting").classList.remove("hidden");
+        document.getElementById("ia-game-button").classList.add("disabled");
+    }
+
+    function onOnline() {
+        console.log("On Online");
+        document.getElementById("reconnecting").classList.add("hidden");
+        document.getElementById("ia-game-button").classList.remove("disabled");
+    }
+</script>
+
+<script src="../js/user/tokenManager.js"></script>
+<script src="../js/buttonSounds.js"></script>
+<script src="../js/socket.io.min.js"></script>
+<script src="../js/user/social.js"></script>
+<script src="../js/user/clash.js"></script>
+</html>

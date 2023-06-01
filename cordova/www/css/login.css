@@ -1,0 +1,22 @@
+
+.visibleLink{
+    color: #95a0f2;
+    text-decoration-line: underline;
+}
+
+.visibleLink:hover{
+    color: #c1c8fd;
+}
+
+.errorMsg{
+    color: red;
+    font-size: 0.9vw;
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+@media screen and (max-width: 768px) {
+    #cancelButton {
+    order: 1;
+    }
+}

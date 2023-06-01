@@ -1,0 +1,67 @@
+#notifications{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 21vw;
+}
+
+#notificationList{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.notif{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1vh;
+}
+
+.friend-request{
+    background-color: #739a5594;
+}
+
+.match-request{
+    background-color: #e08c4b82;
+    width: auto;
+    padding: 10px;
+    border-top: solid;
+    border-color: rgba(0, 0, 0, 0.5);;
+}
+
+.user{
+    color: yellow;
+}
+
+.decision{
+    display: flex;
+    flex-direction: row;
+}
+
+.small-icon{
+    width: 1.5vw;
+    height: auto;
+}
+
+.notif-bubble{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+.notification-title {
+    align-self: center;
+    padding-left: 1vw;
+}
+
+.accept {
+    margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    #notifications {
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PuissanceCraft</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/app_style.css">
+    <link rel="icon" type="image/x-icon" href="../resources/icon/app-little.jpg">
+
+    <script src=../js/buttonSounds.js></script>
+    <script type="application/javascript" src="../js/user/signup.js" defer></script>
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+</head>
+
+<body>
+
+    <header>
+        <div class="horizontal-flew-container">
+            <a class="button space-between wide-square" href="../index.html">
+                <img class="image" src="../resources/icon/home.png">
+            </a>
+        </div>
+    </header>
+
+    <div id="app" class="minecraft-font">
+        <div id="top-container" class="column-flew-container flex-center">
+            <div id="title-container">
+                <h1 class="title">SignUp</h1>
+                <p>You're just a step away from fun!</p>
+            </div>
+        </div>
+        <p id="errorSignup" class="errorMsg hidden"></p>
+        <div id="mid-container" class="flex-center">
+            <form id="button-container" class="">
+                <input class="minecraft" type=text placeholder="Username" name="signupUsername" id="signupUsername">
+                <input class="minecraft" type=email placeholder="Email" name="signupMail" id="signupMail">
+                <input class="minecraft" type=password placeholder="Password" name="signupPassword" id="signupPassword">
+                <div class="horizontal-flew-container">
+                    <a class="button" id="cancelButton" href="javascript:history.back()">Cancel</a>
+                    <a class="button" id="signupButton">Done</a>
+                </div>
+            </form>
+        </div>
+        <div id="bottom-container" class="horizontal-flew-container flex-center">
+            <div id="version">PuissanceCraft 0.0.1</div>
+        </div>
+    </div>
+</body>
+</html>
